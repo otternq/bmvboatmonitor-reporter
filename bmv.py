@@ -5,6 +5,8 @@ import serial
 from time import sleep
 import time
 import os
+from optparse import OptionParser
+
 class bmv:
     def __init__(self,serialport,model):
 
@@ -122,8 +124,21 @@ class bmv:
         
         return self.read_data()
 
+def main():
+
+    parser = OptionParser()
+
+    #General options
+    parser.add_option('-d','--doc', help='Display pydoc', action='store_true', dest='doc')
+
+    (options, args) = parser.parse_args()
+
+    if options.doc:
+        help(bmv)
+    else:
+        bm = bmv("/dev/ttyUSB0",600)
+        print bm.get_data()
 
 if __name__ == '__main__':
-    bm = bmv("/dev/ttyUSB0",600)
-    print bm.get_data()
+    main()
 
