@@ -6,6 +6,9 @@ About
 
 A python script to record data from Victron BMV-600S and BMV-602S
 
+[![PyPi version](https://pypip.in/v/BMV/badge.png)](https://crate.io/packages/BMV/)
+[![PyPi downloads](https://pypip.in/d/BMV/badge.png)](https://crate.io/packages/BMV/)
+
 Preparations
 ------------
 
