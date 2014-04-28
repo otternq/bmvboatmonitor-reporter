@@ -12,9 +12,20 @@
 #GNU General Public License at <http://www.gnu.org/licenses/>
 #for more details.
 
-from bmv               import bmv
-from bmv_remote_store  import BMVRemoteStore
-from bmv_local_factory import Formats, BMVLocalFactory
+try:
+    from bmv               import bmv
+except ImportError:
+    from ..bmv             import bmv
+
+try:
+    from bmv_remote_store  import BMVRemoteStore
+except ImportError:
+    from ..bmv_remote_store  import BMVRemoteStore
+
+try:
+    from bmv_local_factory import Formats, BMVLocalFactory
+except ImportError:
+    from ..bmv_local_factory import Formats, BMVLocalFactory
 
 import time
 import os
