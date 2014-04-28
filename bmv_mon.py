@@ -12,13 +12,14 @@
 #GNU General Public License at <http://www.gnu.org/licenses/>
 #for more details.
 
-from bmv              import bmv
-from bmv_local_store  import BMVLocalStore
-from bmv_remote_store import BMVRemoteStore
+from bmv               import bmv
+from bmv_remote_store  import BMVRemoteStore
+from bmv_local_factory import Formats, BMVLocalFactory
 
 import time
 import os
 from optparse import OptionParser
+
 try:
     import json
 except ImportError:
@@ -49,7 +50,8 @@ def main():
     parser.add_option('-t','--token',help='Include security token and send to url. Use with -u.',dest='token')
 
     #File reporting options
-    parser.add_option('-f', '--file', help="Store data into specified file", dest="file")
+    parser.add_option('-f', '--file',   help="Store data into specified file (defaul format csv)",       dest="file")
+    parser.add_option('', '--format', help="Save data in a specific format [csv,sqlite]. Use with -f", dest='format')
 
     (options, args) = parser.parse_args()
 
@@ -95,7 +97,11 @@ def start(options):
 
         elif options.file:
 
-            BMVLocalStore.store(options.file, bmv_data)
+            BMVLocalFactory.factory(
+                options.format,
+                options.file, 
+                bmv_data
+            )
 
         #Clear screen
         #os.system('cls' if os.name == 'nt' else 'clear')
@@ -110,9 +116,6 @@ def start(options):
         if options.time_interval > 0:
             for i in range(1,int(options.time_interval)):
                 time.sleep(1)
-
-
-
 
 
 if __name__ == '__main__':

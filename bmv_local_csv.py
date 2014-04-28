@@ -7,8 +7,8 @@ import csv
 A storage interface for BMV data
 """
 
-class BMVLocalStore(object):
-    """An interface to store BMV data to a file"""
+class BMVLocalCSV(object):
+    """An interface to store BMV data to a CSV file"""
 
     @staticmethod
     def store(fileName, bmv_data):
@@ -23,11 +23,19 @@ class BMVLocalStore(object):
         #open a file to store data into
         csv_file = open(fileName,'wb')
 
+        columns  = ', '.join(bmv_data.keys())
+
+        i = 0
+        values = []
+        for column in columns:
+            values.insert(i, bmv_data[column])
+            i = i + 1
+
         #an interface to write data to the file
         writer = csv.DictWriter(
             csv_file, 
             delimiter=',', 
-            fieldnames=bmv_data.valuename
+            fieldnames=columns
         )
 
         #if the file is empty, write the headers
@@ -41,4 +49,4 @@ class BMVLocalStore(object):
         csv_file.close()
 
 if __name__ == '__main__':
-    help(BMVLocalStore)
+    help(BMVLocalCSV)
