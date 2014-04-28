@@ -25,7 +25,7 @@ class BMVLocalSqlite(object):
 
         i = 0
         values = []
-        for column in columns:
+        for column in bmv_data.keys():
             values.insert(i, bmv_data[column])
             i = i + 1
 

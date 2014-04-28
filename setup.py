@@ -2,7 +2,7 @@ from distutils.core import setup
 
 setup(
     name='BMV',
-    version='0.2.0',
+    version='0.2.1',
     author='jepefe',
     maintainer='Nick Otter',
     maintainer_email='otternq@gmail.com',

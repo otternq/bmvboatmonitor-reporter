@@ -18,12 +18,12 @@ except ImportError:
     from ..bmv             import bmv
 
 try:
-    from bmv_remote_store  import BMVRemoteStore
+    from bmv.bmv_remote_store  import BMVRemoteStore
 except ImportError:
     from ..bmv_remote_store  import BMVRemoteStore
 
 try:
-    from bmv_local_factory import Formats, BMVLocalFactory
+    from bmv.bmv_local_factory import Formats, BMVLocalFactory
 except ImportError:
     from ..bmv_local_factory import Formats, BMVLocalFactory
 
