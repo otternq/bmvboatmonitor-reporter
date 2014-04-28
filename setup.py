@@ -2,10 +2,12 @@ from distutils.core import setup
 
 setup(
     name='BMV',
-    version='0.1.2',
+    version='0.2.0',
     author='jepefe',
+    maintainer='Nick Otter',
+    maintainer_email='otternq@gmail.com',
     packages=['bmv', 'bmv.test'],
-    scripts=['bin/bmv-mon.py'],
+    scripts=['bin/bmv_mon.py'],
     url='https://github.com/otternq/bmvmonitor',
     license='LICENSE',
     description='A python script to record data from Victron BMV-600S and BMV-602S',
