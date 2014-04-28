@@ -21,29 +21,20 @@ class BMVLocalCSV(object):
         """
 
         #open a file to store data into
-        csv_file = open(fileName,'wb')
+        csv_file = open(fileName,'a')
 
         columns  = ', '.join(bmv_data.keys())
 
-        i = 0
         values = []
-        for column in columns:
-            values.insert(i, bmv_data[column])
-            i = i + 1
-
-        #an interface to write data to the file
-        writer = csv.DictWriter(
-            csv_file, 
-            delimiter=',', 
-            fieldnames=columns
-        )
+        for column in bmv_data.keys():
+            values.append(str(bmv_data[column]))
 
         #if the file is empty, write the headers
         if os.stat(fileName).st_size <= 0:
-            writer.writerow(dict((fn,fn) for fn in bmv_data.valuename))
+            csv_file.write(columns + "\n")
 
         #write the row to a csv
-        writer.writerow(bmv_data)
+        csv_file.write(','.join(values) + "\n")
 
         #close the file
         csv_file.close()

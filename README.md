@@ -9,6 +9,10 @@ A python script to record data from Victron BMV-600S and BMV-602S
 Preparations
 ------------
 
+###PIP
+
+`pip install BMV`
+
 ###Manual
 
 ```
