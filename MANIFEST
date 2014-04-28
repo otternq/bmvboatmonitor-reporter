@@ -4,12 +4,11 @@ LICENSE
 README.md
 requirements.txt
 setup.py
-bin/bmv-mon.py
+bin/bmv_mon.py
 bmv/__init__.py
 bmv/bmv.py
 bmv/bmv_local_csv.py
 bmv/bmv_local_factory.py
 bmv/bmv_local_sqlite.py
-bmv/bmv_mon.py
 bmv/bmv_remote_store.py
 bmv/test/__init__.py
